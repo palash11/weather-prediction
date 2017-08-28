@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="description" content="This is a weather prediction organization that predicts temperature, humidity, wind pressure.">
+    <meta name="keyword" content="Weather prediction, temperature, humidity and wind pressure">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <title>Weather prediction at Allerin</title>
+    <link rel="shortcut icon" href="/home/dipakr/projects/IoT/app/assets/icons/favicon.ico">
+    <link rel="stylesheet" href="/home/dipakr/projects/IoT/app/assets/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/home/dipakr/projects/IoT/app/assets/stylesheets/application.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="/home/dipakr/projects/IoT/app/assets/javascripts/bootstrap.min.js"></script>
+    <script src="/home/dipakr/projects/IoT/app/assets/javascripts/application.js"></script>
+  </head>
+  <body>
+  <nav class="navbar navbar-default text-uppercase">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-bar">
+        <i class="fa fa-bars"></i>
+        </button>
+        <a class="navbar-brand" href="#">
+          <i class="fa fa-cloud fa-2x" title="Weather prediction"></i>
+        </a> 
+      </div>
+      <div class="collapse navbar-collapse" id="navigation-bar">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+          <li><a href="#">Link 4</a></li>
+          <li><a href="#">Link 5</a></li>
+          <li><a href="#">Link 6</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-11">
+        <input type="file" name="JPG JPEG and PNG file format" id="jpg-jpeg-png-file" accept=".jpg, .jpeg, .png">
+      </div>
+      <div class="col-xs-1">
+        <button class="btn btn-default btn-default">GO</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6">
+        <img src="">
+      </div>
+      <div class="col-xs-6">
+        <div class="confidence-precentage">
+          <div class="panel panel-success">
+            <div class="panel-heading">Confidence percentage</div>
+          <div class="panel-body">
+            The confience percentage for this image is <span class="confidence-precentage"> %</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

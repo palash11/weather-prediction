@@ -1,0 +1,11 @@
+input[type="file"], .go-btn {
+  margin-top: 5%;
+}
+.go-btn {
+  border-radius: 25px;
+  padding: 2%;
+}
+
+.image-grid {
+  margin-top: 3%;
+}

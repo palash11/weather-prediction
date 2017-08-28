@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="This is a weather prediction organization that predicts temperature, humidity, wind pressure.">
+    <meta name="keyword" content="Weather prediction, temperature, humidity and wind pressure">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <title>Weather prediction at Allerin</title>
+    <link rel="shortcut icon" href="/static/companies/assets/icons/favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" href="/static/companies/assets/stylesheets/application.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsl_TgCMFTky8FNqvteVLQ9AFZlmANGkY&v=3.exp&libraries=visualization"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="/static/companies/assets/javascripts/jquery.flot.js"></script>
+    <script src="/static/companies/assets/javascripts/jquery.flot.time.js"></script>
+    <script src="/static/companies/assets/javascripts/bootstrap.min.js"></script>   
+    <script src="/static/companies/assets/javascripts/application.js"></script>
+    <script src="/static/companies/assets/javascripts/weather_prediction_map.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+  </head>
+  <body>
+    {% include 'header.html' %}
+    {% include 'carousel.html' %}
+    {% include 'temp_metro_cities.html' %}
+    <div class="container main-content">
+      <div class="alert-message"></div>
+      <h4 class="text-info">Please select date &amp; country:</h4>    
+      <center>
+        <form method="post" id="new_form">
+          <div class="row">
+            {% csrf_token %}
+            <div class="col-sm-6">
+              <label for="id_date">Date<span class="asterik">*</span>:</label> {{ form.date }}
+            </div>
+            <div class="col-sm-6">
+              <label for="id_country_by">Country<span class="asterik">*</span>:</label> {{ form.filter_by }}
+            </div>
+          </div>
+          <div class="row text-center">
+            <button type="submit" class="btn btn-success text-uppercase submit-btn">Submit</button>
+          </div>
+        </form>
+      </center>  
+      <h4 class="text-info prediction-values-label">Weather prediction values&nbsp;<i class="fa fa-sun-o"></i></h4>
+      <div class="container">
+        <div class="row prediction-value text-center">
+          <div class="col-sm-2">
+            <div class="panel panel-primary">
+              <div class="panel-heading text-uppercase" id="panel1">Temperature</div>
+              <div class="panel-body">
+                <span class="temp-value">{{ one }} &#8451;</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div class="panel panel-primary">
+              <div class="panel-heading text-uppercase" id="panel2">Humidity</div>
+              <div class="panel-body">
+                <span class="humidity-value">{{ two }} %</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="panel panel-success">
+              <div class="panel-heading text-uppercase" id="panel3">Wind pressure</div>
+              <div class="panel-body">
+                <span class="wind-pressure-value">{{ three }} mbar</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div class="panel panel-info">
+              <div class="panel-heading text-uppercase" id="panel4">Wind speed</div>
+              <div class="panel-body">
+                <span class="wind-speed-value">{{ four }} km/hr</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="panel panel-warning">
+              <div class="panel-heading text-uppercase" id="panel5">Precipitation type</div>
+              <div class="panel-body">
+                <span class="precipitate">{{ five }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>  
+      <h4 class="text-info weather-prediction-graph-label">Weather prediction graph:</h4>
+      <div id="temp-graph"></div>
+      <h4 class="text-info">Please select city &amp; country code:</h4>    
+      <form method="post" id="sec_form">
+        <center>
+          <div class="row">
+            {% csrf_token %}
+            <div class="col-sm-6 select_date">
+              <label for="id_date">Date:</label> {{ form.date }}
+            </div>
+            <div class="col-sm-6 select_country">
+              <label for="id_filter_by">Country:</label> {{ form.filter_by }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <label for="id_city">City<span class="asterik">*</span>:</label> {{ forms.city }}
+            </div>
+            <div class="col-sm-6">
+              <label for="id_country">Country Code<span class="asterik">*</span>:</label> {{ forms.country }}
+            </div>
+          </div>
+          <div class="row text-center">
+            <button type="submit" class="btn btn-success text-uppercase city-country-submit-btn" onsubmit="return false;">Submit</button>
+          </div>
+        </center>
+      </form>
+      {% include 'weather_prediction_city_country_code.html' %}
+      {% include 'weather_prediction_map_any_country.html' %}     
+      <script src="/static/companies/assets/javascripts/weather_prediction_values_graph.js"></script>   
+      <script src="/static/companies/assets/javascripts/max_temp_graph_wp.js"></script>
+      {% include 'footer.html' %}
+    </div>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+{% extends 'companies/index.html' %}
+
+{% block body_block %}
+	<!-- <p>Graph :  </p>
+		{{ figure | safe }} -->
+
+	<form action = "" method="POST">{% csrf_token %}
+        {{ form.as_p }}
+    	<input type="submit">
+	</form>
+    
+	{% block extra_js %}{% endblock extra_js %}
+{% endblock %}

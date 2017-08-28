@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="This is a weather prediction organization that predicts temperature, humidity, wind pressure.">
+    <meta name="keyword" content="Weather prediction, temperature, humidity and wind pressure">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <title>Weather prediction at Allerin</title>
+    <link rel="shortcut icon" href="/static/companies/assets/icons/favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/companies/assets/stylesheets/application.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsl_TgCMFTky8FNqvteVLQ9AFZlmANGkY&v=3.exp&libraries=visualization"></script>
+    <script src="/static/companies/assets/javascripts/bootstrap.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="/static/companies/assets/javascripts/jquery.flot.js"></script>
+    <script src="/static/companies/assets/javascripts/jquery.flot.time.js"></script>
+    <script src="/static/companies/assets/javascripts/max_temp_graph_wp.js"></script>
+    <script src="/static/companies/assets/javascripts/application.js"></script>
+    <script src="/static/companies/assets/javascripts/weather_prediction_values_graph.js"></script>
+    <script src="/static/companies/assets/javascripts/weather_prediction_map.js"></script>    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+  </head>
+  <body>
+    {% include 'header.html' %}
+    {% include 'carousel.html' %}
+    {% include 'temp_metro_cities.html' %}          
+    <div class="container main-content">
+      <center>
+        <form method="post" id="new_form">
+          <div class="row">
+            {% csrf_token %}
+            <div class="col-sm-6">
+              <label for="id_date">Date:</label> {{ form.date }}
+            </div>
+            <div class="col-sm-6">
+              <label for="id_country">Country:</label> {{ form.filter_by }}
+            </div>
+          </div>
+          <button type="submit" class="btn btn-success text-uppercase submit-btn">Submit</button>
+        </form>
+      </center>
+      <div id="temp"></div>
+      <h4 class="text-info prediction-values-label">Weather prediction values:</h4>
+      <div class="row prediction-value text-center">
+        <div class="col-xs-4">
+          <div class="panel panel-primary">
+            <div class="panel-heading text-uppercase">Average Temperature</div>
+            <div class="panel-body">
+              <span class="temp-value">{{ one }} &#8451;</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h4 class="text-info weather-prediction-graph-label">Weather prediction graph:</h4>
+      <div id="temp-graph"></div>
+      <hr/>
+      <h4 class="text-info">Please select city &amp; country code:</h4>    
+      <form method="post" id="sec_form">
+        <center>
+          <div class="row">
+            {% csrf_token %}
+            <div class="col-sm-6 select_date">
+              <label for="id_date">Date:</label> {{ form.date }}
+            </div>
+            <div class="col-sm-6 select_country">
+              <label for="id_filter_by">Country:</label> {{ form.filter_by }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <label for="id_city">City<span class="asterik">*</span>:</label> {{ forms.city }}
+            </div>
+            <div class="col-sm-6">
+              <label for="id_country">Country Code<span class="asterik">*</span>:</label> {{ forms.country }}
+            </div>
+          </div>        
+          <div class="row text-center">
+            <button type="submit" class="btn btn-success text-uppercase city-country-submit-btn" onsubmit="return false;">Submit</button>
+          </div>
+        </center>
+      </form>
+      {% include 'weather_prediction_city_country_code.html' %}
+      {% include 'weather_prediction_map_any_country.html' %}
+    </div>
+    {% include 'footer.html' %}
+  </body>
+</html>
+

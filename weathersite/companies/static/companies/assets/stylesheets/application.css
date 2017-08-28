@@ -1,0 +1,232 @@
+html {
+  font-size: 100%;
+}
+
+nav {
+  padding: 1%;
+  border-color: #1f1f1f !important;
+  background-color: #1f1f1f !important;
+  font-family: Montserrat;
+}
+
+.navbar {
+  margin-bottom: 0px;
+}
+
+.navbar-collapse.collapse.in {
+  border-color: #fff;
+}
+
+
+
+
+body {
+  min-height: 100%;
+  font-size: 100%;
+  font-family: "Libre Franklin",Helvetica,Arial,sans-serif;
+  background-color: #e0eeee;
+  line-height: 1.2em;
+}
+
+img {
+  width:100%;
+  height: 300px !important;
+  opacity: 0.5;
+  border: 1px solid #d3d3d3;
+}
+
+.carousel-control.left, .carousel-control.right {
+  background-image: none;
+  width: 4%;
+  margin-top: 140px;
+}
+
+.carousel-caption h2, .carousel-caption p {
+  color: #000;
+}
+
+span.fa.fa-chevron-left, span.fa.fa-chevron-right {
+  padding: 30%;
+  background-color: #000;
+}
+
+.alert-message {
+  margin-top: 1%;
+}
+
+#id_date{
+  width: 200px;
+}
+
+
+/*.ui-datepicker-calendar {
+  background-color: #fafafa;
+}
+
+#ui-datepicker-div {
+  font-family: Montserrat;
+}
+
+.ui-state-default.ui-state-highlight.ui-state-active {
+  color: #5cb85c !important;
+  font-weight: 800;
+}
+
+.ui-datepicker-calendar th {
+  color: #5bc0de;
+}
+
+.ui-datepicker-title {
+  color: #337ab7;
+}
+*/
+
+h4.text-info {
+  font-weight: bold;
+}
+
+.temperature, .wind-pressure, .humidity, .precipitation-type, .wind-speed {
+  border: 1px solid #ccc;
+  height: 100px;
+  color: #337ab7;
+  margin-right: 2%;
+}
+
+.col-xs-12 label {
+  margin-top: 20px;
+}
+
+.prediction-value .row {
+  background-color: #ccc;
+}
+
+hr {
+  border-color: #000;
+}
+
+#weather-prediction-graph > form {
+  background-color: #579a9c;
+}
+
+h4.text-info {
+  padding-top: 30px!important;
+}
+
+.submit-btn, .city-country-submit-btn, .button {
+  border-radius: 25px;
+  padding: 10px;
+  font-weight: bolder;
+  background-color: #fff;
+  border-color: #286090;
+  color: #286090;
+  width: 100px;
+  cursor: pointer;
+  margin: 3% 0% 5% 0%;
+}
+
+.submit-btn:hover, .button:hover {
+  transition: background-color 0.2s ease-in-out 0s;
+  background-color: #286090;
+  border-color: #286090;
+  color: #fff;
+}
+
+#map-canvas {
+  height: 400px;
+  width: 100%;
+  visibility: visible;
+}
+
+.navbar-brand {
+  font-weight: bold;
+}
+
+.asterik {
+  color: #f00;
+}
+
+#api_chart, #temp-graph, #chart-div {
+  width: 1000px; 
+  display: block;
+  height: 310px;
+}
+
+select#id_filter_by {
+  margin-left: 75px;
+}
+
+.panel {
+  font-size: 13px;
+}
+
+#sec_form > input#id_date, #sec_form > label[for="id_date"], .select_date, .select_country, .col-sm-6 label[for="id_filter_by"], .col-sm-6 select#id_filter_by, .errorlist {
+  display: none;
+}
+
+.container.main-content > form, .prediction-value, form#new_form, form#sec_form {
+  margin-top: 2%;
+  padding-top: 2%;
+  background-color: #8ee5ee;
+  color: #000;
+}
+
+hr {
+  margin: 50px 0px 50px 0px;
+}
+
+
+
+
+footer {
+  background-color: #1f1f1f;
+  padding: 3%;
+  width: 100%;
+  color: #fff;
+  font-family: Montserrat;
+}
+
+.footer-links.list-inline.list-unstyled a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.jump-to-top {
+  background-color: #ccc;
+  padding: 1%;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.jump-to-top:hover {
+  color: #428bca;
+  background-color: #fff;
+  border-color: #428bca;
+}
+
+i.fa-arrow-up {
+  transition:  0.6s ease-out;
+  -webkit-transition: 0.6s ease-out;
+  -moz-transition:  0.6s ease-out;
+}
+
+i.fa-arrow-up:hover {
+  transform: rotateZ(720deg);
+  -webkit-transform: rotateZ(720deg);
+  -moz-transform: rotateZ(720deg);
+}
+
+.copyright {
+  user-select: none;
+  -moz-user-select: none;
+}
+
+.temp-metro-cities .col-sm-2 {
+  background-color: #3B4148;
+  color: #fff;
+  padding: 2%;
+  text-align: center;
+}
+
+.temp-metro-cities .col-sm-2:hover {
+  background-color: #223141;
+}
